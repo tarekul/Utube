@@ -34,10 +34,16 @@ class Home extends Component {
                 videoListData.push(temp)
             })
             let temp2 = this.state.data.concat(videoListData)
+            localStorage.setItem('vids',JSON.stringify(temp2))
             this.setState({isLoading:false,data:temp2,pageToken:response.data.nextPageToken})
         })
     }
 
+    componentDidMount(){
+        if(localStorage.getItem('vids')){
+            this.setState({isLoading:false,data:JSON.parse(localStorage.getItem('vids'))})
+        }
+    }
 
     handleInput = (e) =>{
         if(e.keyCode === 13) {
@@ -59,30 +65,41 @@ class Home extends Component {
 
     render() {
         if(this.state.isLoading) return <>
-        <div class="container">
+        
         <div className="col">
-        <form class="form-inline" >
+        <div class="d-flex justify-content-center">
+        <div class="p-2 bd-highlight">
+        <form class="form-inline" style={{paddingLeft:'10%'}} >
             <input className="form-control mr-sm-2" type="search" placeholder="Search for videos..." aria-label="Search" onChange={this.handleit} onKeyDown={this.handleInput}/>
             <button type="submit" class="btn btn-danger" onClick={this.handleSubmit}>Search</button>
         </form>
         {/* <input className="form-control mr-sm-2" type="search" placeholder="Search for videos..." aria-label="Search" onKeyDown={this.handleInput}/> */}
         <p className='little'>No Search Results Yet! Please submit a search above!</p>
+        </div>
+        </div>
+        </div>
         
-        </div>
-        </div>
         </>
         else{ 
             // <h3>Search results for BLANK</h3>
             return <>
             <div className='row'>
-            <div class="col">
-            <form class="form-inline">
+            <div class="col-sm-12">
+            <div class="d-flex justify-content-center">
+            <div class="p-2 bd-highlight">
+            <form class="form-inline" >
             <input className="form-control mr-sm-2" type="search" placeholder="Search for videos..." aria-label="Search" onChange={this.handleit} onKeyDown={this.handleInput}/>
-            <button type="submit" class="btn btn-danger" onClick={this.handleSubmit}>Submit</button>
+            <button type="submit" class="btn btn-danger" onClick={this.handleSubmit}>Search</button>
             </form>
             </div>
-            <div className="container">
-            <div className='content row'>
+            </div>
+            
+            </div>
+            
+            <div class='container' style={{paddingLeft:'10%'}}>
+            <div class="d-flex justify-content-center">
+            <div class="p-2 bd-highlight">
+            <div class='row'>
             {this.state.data.map((vid, i)=>{
                 return <div className='col-sm-6'>
                         <Link to={`/video/${vid.video_id}`}><img src={vid.img} alt={vid.img} /></Link>
@@ -92,6 +109,9 @@ class Home extends Component {
             </div>
             </div>
             </div>
+            </div>
+            </div>
+            
             
             </>
             

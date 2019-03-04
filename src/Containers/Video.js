@@ -69,12 +69,14 @@ class Video extends Component {
                 </div>
                 
                 
-                <div className='col-sm-12'>
+                
+                <div className='col-sm-8'>
                     <hr/>
                 </div>
                 
+                
         
-        <div className='col-sm-12'>
+        <div className='col-sm-8'>
         <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Name</label>
@@ -90,8 +92,8 @@ class Video extends Component {
         
         {this.display()}
         </div>
-        </div>
         
+        </div>
         </>
         );
         }
