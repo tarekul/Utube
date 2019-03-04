@@ -62,7 +62,7 @@ class Video extends Component {
             <>  <div className='container'>
                 <div className='row'>
                 <div className='col-sm-12'>
-                    <iframe title='yt-video' type="text/html" 
+                    <iframe title='yt-video' type="text/html" width="340" height="360"
                     src={this.state.link} frameBorder="0"></iframe>
                 </div>
                 
