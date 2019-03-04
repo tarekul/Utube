@@ -59,16 +59,21 @@ class Video extends Component {
         if(this.state.loading) return <h1>loading</h1>
         else{
         return (
-            <>
-                <div className='row middle'>
-                    <div className='player'>
+            <>  <div className='container'>
+                <div className='row'>
+                <div className='col-sm-12'>
                     <iframe title='yt-video' type="text/html" width="640" height="360"
                     src={this.state.link} frameBorder="0"></iframe>
-                    </div>
-                    
                 </div>
-                <hr style={{marginLeft:'300px',marginRight:'300px'}}/>
-        <div className='middle'>
+                
+                
+                
+                <div className='col-sm-12'>
+                    <hr/>
+                </div>
+                
+        
+        <div className='col-sm-12'>
         <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Name</label>
@@ -84,7 +89,8 @@ class Video extends Component {
         
         {this.display()}
         </div>
-        
+        </div>
+        </div>
         </>
         );
         }

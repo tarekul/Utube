@@ -19,7 +19,7 @@ class Home extends Component {
                 videoDefinition: 'high',
                 type: 'video',
                 videoEmbeddable: 'true',
-                key: 'AIzaSyCb9A4kjrypWw84UxCN6AwnagElm_90OlU',//'AIzaSyDjQJDqIRITkKviY4lVH3eUF1NPcNrgGuA',
+                key: 'AIzaSyDjQJDqIRITkKviY4lVH3eUF1NPcNrgGuA',//'AIzaSyCb9A4kjrypWw84UxCN6AwnagElm_90OlU',
                 q: query,
                 pageToken: pageToken
             }
@@ -59,35 +59,39 @@ class Home extends Component {
 
     render() {
         if(this.state.isLoading) return <>
-        <div className='center'>
-        <form class="form-inline" style={{marginLeft:'250px'}}>
+        <div class="container">
+        <div className="col">
+        <form class="form-inline" >
             <input className="form-control mr-sm-2" type="search" placeholder="Search for videos..." aria-label="Search" onChange={this.handleit} onKeyDown={this.handleInput}/>
             <button type="submit" class="btn btn-danger" onClick={this.handleSubmit}>Search</button>
         </form>
         {/* <input className="form-control mr-sm-2" type="search" placeholder="Search for videos..." aria-label="Search" onKeyDown={this.handleInput}/> */}
         <p className='little'>No Search Results Yet! Please submit a search above!</p>
-        </div></>
+        
+        </div>
+        </div>
+        </>
         else{ 
             // <h3>Search results for BLANK</h3>
             return <>
-            <div className='center'>
-            <form class="form-inline" style={{marginLeft:'250px'}}>
+            <div className='container'>
+            <div className='row'>
+            <div class="col">
+            <form class="form-inline">
             <input className="form-control mr-sm-2" type="search" placeholder="Search for videos..." aria-label="Search" onChange={this.handleit} onKeyDown={this.handleInput}/>
             <button type="submit" class="btn btn-danger" onClick={this.handleSubmit}>Submit</button>
             </form>
+            </div>
+            <div className="container">
             <div className='content row'>
             {this.state.data.map((vid, i)=>{
-                return <div className='col-6'>
+                return <div className='col-sm-6'>
                         <Link to={`/video/${vid.video_id}`}><img src={vid.img} alt={vid.img} /></Link>
-                        <h5>{vid.title}</h5>
+                        <p>{vid.title}</p>
                     </div>
-                
-                
-                
-                
-
-            })}
-            {/* {this.makerows()} */}
+                })}
+            </div>
+            </div>
             </div>
             </div>
             </>
