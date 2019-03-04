@@ -59,7 +59,7 @@ class Video extends Component {
         if(this.state.loading) return <h1>loading</h1>
         else{
         return (
-            <>  <div className='container'>
+            <>  
                 <div className='row'>
                 <div className='col-sm-12'>
                 <div class="embed-responsive embed-responsive-16by9">
@@ -91,7 +91,7 @@ class Video extends Component {
         {this.display()}
         </div>
         </div>
-        </div>
+        
         </>
         );
         }
