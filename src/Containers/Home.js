@@ -74,7 +74,6 @@ class Home extends Component {
         else{ 
             // <h3>Search results for BLANK</h3>
             return <>
-            <div className='container'>
             <div className='row'>
             <div class="col">
             <form class="form-inline">
@@ -93,7 +92,7 @@ class Home extends Component {
             </div>
             </div>
             </div>
-            </div>
+            
             </>
             
         }     
