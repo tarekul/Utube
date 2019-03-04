@@ -61,8 +61,8 @@ class Video extends Component {
         return (
             <>  
                 <div className='row'>
-                <div className='col-sm-12'>
-                <div class="embed-responsive embed-responsive-4by3">
+                <div className='col-sm-8'>
+                <div class="embed-responsive embed-responsive-16by9">
                     <iframe title='yt-video' type="text/html" 
                     src={this.state.link} frameBorder="0"></iframe>
                 </div>
@@ -78,12 +78,12 @@ class Video extends Component {
         <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name.." onChange={this.handleName}  />
+            <input type="text" class="form-control"  placeholder="Name.." onChange={this.handleName}  />
             
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Comment</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="..." onChange={this.handleComment}/>
+            <input type="text" class="form-control"  placeholder="..." onChange={this.handleComment}/>
         </div>
         <button type="submit" class="btn btn-primary" onClick={this.handleClick}>Submit</button>
         </form>
